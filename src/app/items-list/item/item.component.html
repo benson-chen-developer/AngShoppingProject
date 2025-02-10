@@ -1,6 +1,10 @@
-<div style="position: relative; width: 200px; display:flex; flex-direction: column; align-items: center;">
+<div 
+    (mouseenter)="hovered = true"
+    (mouseleave)="hovered = false"
+    style="position: relative; width: 200px; display:flex; flex-direction: column; align-items: center;"
+>
     <img 
-        [src]="'assets/static/products/' + item.sku + '-1-cart.webp'" 
+        [src]="hovered ? 'assets/static/products/' + item.sku + '-2-product.webp' : 'assets/static/products/' + item.sku + '-1-cart.webp'" 
         alt="Shopping Cart Icon" 
         style="width: 200px; height: 275px;" 
     />

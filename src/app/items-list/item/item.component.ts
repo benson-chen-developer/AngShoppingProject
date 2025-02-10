@@ -25,7 +25,7 @@ export class ItemComponent {
         "style": '',
         "title": ''
   };
-
+  hovered = false;
 
   get installmentPrice() {
     return (this.item.price / this.item.installments).toFixed(1); 
