@@ -1,0 +1,22 @@
+<div style="position: relative; width: 200px; display:flex; flex-direction: column; align-items: center;">
+    <img 
+        [src]="'assets/static/products/' + item.sku + '-1-cart.webp'" 
+        alt="Shopping Cart Icon" 
+        style="width: 200px; height: 275px;" 
+    />
+    <p style="font-size: 12px;">{{item.title}}</p>
+
+    <h6>${{item.price}}</h6>
+    <p style="font-size: 12px; color: grey;">or {{item.installments}}  x {{installmentPrice}}</p>
+    
+    <button (click)="addCart(item)">Add To Cart</button>
+
+    <div *ngIf="item.isFreeShipping"
+        style="
+        position: absolute; right: 0; top: 0; background-color: #000; color: white;
+        font-size: 12px;
+    ">
+        Free Shipping
+    </div>
+  </div>
+  

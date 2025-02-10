@@ -1,0 +1,20 @@
+<div style="min-width: 30%;">
+    <h5>Sizes: </h5>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 12px; border: none;">
+        <button 
+            [ngStyle]="{
+                'border-radius': '100px',
+                'width': '40px',
+                'height': '40px',
+                'text-align': 'center',
+                'background': pickedSizes.includes(size) ? 'black' : '#ECECEC',
+                'color': pickedSizes.includes(size) ? 'white' : 'black',
+            }"
+            *ngFor="let size of sizes"
+            (click)="onSizeClick(size)"
+        >
+            {{ size }}
+        </button>
+    </div>
+</div>

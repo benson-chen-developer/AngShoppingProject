@@ -1,0 +1,41 @@
+/* For off-canvas animation */
+.offcanvas-end {
+    transition: transform 0.3s ease-in-out;
+}
+
+#btn:hover{
+    cursor: pointer;
+}
+
+.offcanvas-header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+/* Dark overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; /* Hidden by default */
+    z-index: 1040; /* Below sidebar */
+}
+
+/* When the overlay is shown, it takes up the full screen */
+.overlay.show {
+    display: block;
+}
+
+/* Sidebar swooping animation */
+.offcanvas-end {
+    background: #212529;
+    transform: translateX(100%); 
+}
+
+.offcanvas-end.show {
+    transform: translateX(0); 
+}

@@ -1,0 +1,61 @@
+<div class="offcanvas offcanvas-end" tabindex="-1" id="sidebar">
+    <div class="offcanvas-header">
+        <div style="display: flex;">
+            <div style="border-radius: 100px; width: 30px; height: 30px; background-color: yellow; font-weight: bold; text-align: center;">
+                {{productsFound}}
+            </div>
+            <img src="assets/static/cart-icon.png">
+        </div>
+
+        <h5 style="color: #fff; margin-left: auto;">Cart</h5>
+        
+        <div id="btn" (click)="clickCloseSidebar()" style="color: #fff; margin-left: auto; width: 50px; font-weight: bold;" >X</div>
+    </div>
+
+    <ng-container *ngFor="let item of myCart">
+        <div style="height: 150px; width: 100%; display: flex; align-items: center;">
+            <img [src]="'assets/static/products/' + item.product.sku + '-1-cart.webp'" style="height: 90%; width: 100px; object-fit: cover;">
+            <div style="margin-left: 10px; font-size: 12px;">
+                <p style="color: #fff; margin: 0;">{{ item.product.title }}</p>
+                <p style="color: grey; margin: 0;">X | {{ item.product.style }}</p>
+                <p style="color: grey; margin: 0;">Quantity: {{ item.quantity }}</p>
+            </div>
+
+            <div style="font-size: 12px; color: yellow; margin-left: auto;">
+               <p>${{item.price.toFixed(2)}}</p>
+
+               <div style="display: flex; background: black;">
+                   <button (click)="onDelItem(item.product)">-</button>
+                   <button (click)="onAddItem(item.product)">+</button>
+               </div>
+            </div>
+
+            <div 
+                (click)="onDeleteAllItem(item.product)"
+                style="color:#fff; margin: 0px 10px; height: 100%; cursor: pointer;"
+            >
+                X
+            </div>
+        </div>
+    </ng-container>
+
+    <br>
+
+    <div style="display: flex; width: 100%; margin: 10px; color:grey; justify-content: space-between;">
+        <p>SUBTOTAL</p>	
+
+        <div style="margin-right: 20px; text-align: right;">
+            <p style="color: yellow;">${{totalPrice.toFixed(2)}}</p> 
+            {{totalInstallment}}
+        </div>
+    </div>
+
+    <div style="display: flex; width: 100%; justify-content: center;">
+        <button style="width: 80%; background: #000; height: 40px; color:#fff; text-align: center;" (click)="generatePDF()">
+            Checkout
+        </button>
+    </div>
+</div>
+  
+<!-- Dark overlay -->
+<div id="overlay" class="overlay" (click)="clickCloseSidebar()"></div>
